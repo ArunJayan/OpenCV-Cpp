@@ -17,6 +17,8 @@ int main(int argc,const char** argv)
 		return -1;
 	}
 	cvtColor(img,gray,CV_BGR2GRAY);
+	//cvtColor() can be ised convert image to other color formar like GRAYSCALE
+	//first input
 	namedWindow("gray",CV_WINDOW_AUTOSIZE);
 	imshow("gray",gray);
 	waitKey(0);
