@@ -35,6 +35,6 @@ while(true)
 	}
 	//waits for keypress
 }
-	destroyAllWindows();
 	return 0;
+	destroyAllWindows();
 }
