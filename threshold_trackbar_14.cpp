@@ -14,7 +14,7 @@ There are 5 type of thresholding
 */
 Mat img,gray,out; //Mat variable to hold img array
 
-int threshold_value = 0; // threshold value
+int threshold_value = 60; // threshold value
 int threshold_type = 0;	//threshold type (0-4)
 
 const char* label = "Threshold Type (0-4) :";//label
@@ -27,9 +27,10 @@ void threshold_function(int,void*)
 }
 int main(int argc,const char** argv)
 {
-	img = imread("sample.png",CV_LOAD_IMAGE_COLOR);//read the source image.
+	img = imread("apple.jpg",CV_LOAD_IMAGE_COLOR);//read the source image.
 	cvtColor(img,gray,CV_BGR2GRAY);//convert the source img to grayscale . 
 	namedWindow("Threshold_Trackbar",CV_WINDOW_AUTOSIZE);//creates a window.
+	//CV_WINDOW_NORMAL can be applicable as flag
 	createTrackbar("ThresholdValue :","Threshold_Trackbar",&threshold_value,255,threshold_function);
 	//in the above step we create a trackbar to variy threshold value
 	createTrackbar(label,"Threshold_Trackbar",&threshold_type,4,threshold_function);
