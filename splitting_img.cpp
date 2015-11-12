@@ -1,10 +1,11 @@
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <iostream>
 
 using namespace std;
 using namespace cv;
 
-Mat img; //image 
+Mat img,hsv; //image 
 vector<Mat> channels; // vector to store channels
 int main(int argc,const char** argv)
 {
@@ -13,15 +14,15 @@ int main(int argc,const char** argv)
 	{
 		cout<<"Image can't be loaded";
 	}
-
+	cvtColor(img,hsv,CV_BGR2HSV); //convert tp HSV
 	namedWindow("Splitting-Img",CV_WINDOW_AUTOSIZE);
 	//creates a window 
-	split(img,channels);
+	split(hsv,channels);
 	//split RGB image into channels : R,G,B
 	imshow("Splitting-Img",img);
-	imshow("B",channels[0]);
-	imshow("G",channels[1]);
-	imshow("R",channels[2]);
+	imshow("ch1",channels[0]);
+	imshow("ch2",channels[1]);
+	imshow("ch3",channels[2]);
 	waitKey(0);
 	return 0;
 }
