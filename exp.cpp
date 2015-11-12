@@ -70,7 +70,6 @@ void check_occurance(int ones,Mat img)
         }
       }*/
         imgOriginal = fillROI(imgOriginal,0,255,0);
-        x = x_origin;
         y = y_origin;
         int random = rand() % 400 +1; //random num
         cout<<random<<endl;
