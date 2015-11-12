@@ -2,7 +2,7 @@
 //Author : Arun Jayan
 //Email ID : arunjayan32@gmail.com
 //################################################################################################
-//log : 
+//log report of work: 
 //modified : 5 Nov 2015 --> started and learned opencv C++ (github.com/ArunJayan/OpenCV-Cpp)
 //modified : 6 Nov 2015 --> done thresholding etc. and started with color detection using inRange(),familarized with rectangle()
 //last modified : 7 Nov 2015 --> has trouble with Mat img = frame (here we pass reference not data, so we have to use, Mat img =frame.clone())
@@ -70,7 +70,8 @@ void check_occurance(int ones,Mat img)
         }
       }*/
         imgOriginal = fillROI(imgOriginal,0,255,0);
-        y = y_origin;
+        x = x_origin;//set to default values
+        y = y_origin;// ""  ""   ""     ""
         int random = rand() % 400 +1; //random num
         cout<<random<<endl;
         x = x + random; //modified position
