@@ -27,5 +27,12 @@ void threshold_function(int,void*)
 }
 int main(int argc,const char* argv)
 {
+	img = imread("sample.png",CV_LOAD_IMAGE_COLOR);//read the source image.
+	cvtColor(img,out,CV_BGR2GRAY);//convert the source img to grayscale . 
+	namedWindow("Threshold_Trackbar",CV_WINDOW_AUTOSIZE);//creates a window.
+	createTrackbar("ThresholdValue :","Threshold_Trackbar",&threshold_value,255,threshold_function);
+	//in the above step we create a trackbar to variy threshold value
+	createTrackbar(label,"Threshold_Trackbar",&threshold_type,4,threshold_function);
+	//creates another trackbar to variying threshold type
 	
 }
