@@ -14,25 +14,33 @@ There are 5 type of thresholding
 */
 Mat img,gray,out; //Mat variable to hold img array
 
-int threshold_value; // threshold value
+int threshold_value = 0; // threshold value
 int threshold_type = 0;	//threshold type (0-4)
 
-const char* label = "Type : \n0. Binary\n1. Binary Inverted\n2. Threshold Truncated\n3. Threshold to zero\n4. Threshold to zero inverted";
+const char* label = "Threshold Type (0-4) :";//label
 
 void threshold_function(int,void*)
 {
 	threshold(gray,out,threshold_value,255,threshold_type);//thresholding the gray image
-	imshow("Threshold_Trackbar",gray);//show the image
+	imshow("Threshold_Trackbar",out);//show the image
 
 }
-int main(int argc,const char* argv)
+int main(int argc,const char** argv)
 {
 	img = imread("sample.png",CV_LOAD_IMAGE_COLOR);//read the source image.
-	cvtColor(img,out,CV_BGR2GRAY);//convert the source img to grayscale . 
+	cvtColor(img,gray,CV_BGR2GRAY);//convert the source img to grayscale . 
 	namedWindow("Threshold_Trackbar",CV_WINDOW_AUTOSIZE);//creates a window.
 	createTrackbar("ThresholdValue :","Threshold_Trackbar",&threshold_value,255,threshold_function);
 	//in the above step we create a trackbar to variy threshold value
 	createTrackbar(label,"Threshold_Trackbar",&threshold_type,4,threshold_function);
 	//creates another trackbar to variying threshold type
-	
+	threshold_function(0,0);
+	while(true)
+	{
+		if((char)waitKey(10)==27) // wait for Esc to press
+			break;
+	}
+	return 0;
+	destroyWindow("Threshold_Trackbar");
+
 }
