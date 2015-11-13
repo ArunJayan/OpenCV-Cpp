@@ -40,14 +40,15 @@ void imtool(int event, int x, int y, int flags, void* param)
 
 int main(int argc, char** argv)
 {
-    img = imread("sample.png");
-    if (img.empty())
+    img = imread("sample.png",CV_IMAGE_LOAD_COLOR);//read the image
+    if (!img.data)
+    	cout<<"Image can't be loaded";
         return -1;
 
-    namedWindow("imtool");
-    setMouseCallback("imtool", imtool, 0);
-    imshow("imtool", img);
-    waitKey(0);
+    namedWindow("imtool");//window
+    setMouseCallback("imtool", imtool, 0);//mouse callback function
+    imshow("imtool", img);//show the image
+    waitKey(0);//wait for keypress
 
     return 0;
 }
