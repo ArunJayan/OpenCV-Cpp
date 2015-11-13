@@ -19,7 +19,7 @@ void imtool(int event, int x, int y, int flags, void* param)
     if (event == EVENT_LBUTTONDOWN)//if left button clicked
     {
         Vec3b p = img2.at<Vec3b>(y,x);
-        sprintf(text, "R=%d, G=%d, B=%d", p[2], p[1], p[0]);
+        sprintf(text, "R=%d, G=%d, B=%d", p[2], p[1], p[0]);//text message that print R,G,B values
     }
     else if (event == EVENT_RBUTTONDOWN)
     {
