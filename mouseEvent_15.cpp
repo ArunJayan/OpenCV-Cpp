@@ -11,7 +11,7 @@
 using namespace std;
 using namespace cv;
 
-void mouse_event_callback(int event,int x,int y,int flags,void*)
+void mouse_event_callback(int event,int x,int y,int flags,void* u)
 {
 	if(event==EVENT_LBUTTONDOWN)//if left button clicked
 	{
@@ -31,6 +31,13 @@ void mouse_event_callback(int event,int x,int y,int flags,void*)
 		cout<<"Mouse \nmove over the window Position:("<<x<<","<<y<<")";
 	}
 }
+// void functionName (int event,intx,int y,int flags,void* u)
+// event : Type of mouse event
+// x : x-coordinate
+// y : y-coordniate
+// flags
+//last argument is any pointer passed to thesetMouseCallback() as third parameter
+
 int main(int argc,char** argv)
 {
 	Mat img = imread("sample.png",CV_LOAD_IMAGE_COLOR);
@@ -44,6 +51,8 @@ int main(int argc,char** argv)
 	//creates a window named "MouseEvent"
 	setMouseCallback("MouseEvent",mouse_event_callback,NULL);
 	//set the callback function for any mouse event
+	//first argument : window name
+	//second : mouse callback  function  .
 	imshow("MouseEvent",img);
 	//show the image
 	waitKey(0);
