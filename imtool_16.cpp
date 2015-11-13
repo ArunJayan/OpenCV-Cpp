@@ -41,7 +41,7 @@ void imtool(int event, int x, int y, int flags, void* param)
 int main(int argc, char** argv)
 {
     img = imread("sample.png",CV_IMAGE_LOAD_COLOR);//read the image
-    if (!img.data)
+    if (!img.data)//if image is not loaded exit 
     	cout<<"Image can't be loaded";
         return -1;
 
