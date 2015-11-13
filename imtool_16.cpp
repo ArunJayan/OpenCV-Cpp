@@ -7,7 +7,7 @@
 using namespace cv;
 using namespace std;
 
-Mat img;
+Mat img;//image
 
 void imtool(int event, int x, int y, int flags, void* param)
 {
