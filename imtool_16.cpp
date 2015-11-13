@@ -28,7 +28,7 @@ void imTool(int event, int x, int y, int flags, void* param)
     else
         sprintf(text, "x=%d, y=%d", x, y);//otherwise print coodinates 
 	cout<<text<<endl;
-     putText(img2, text, Point(430,15), FONT_HERSHEY_COMPLEX_SMALL, 0.8, Scalar(0,0,255));
+     putText(img2, text, Point((img2.cols/2)+10,15), FONT_HERSHEY_COMPLEX_SMALL, 0.8, Scalar(0,0,255));
     imshow("imtool", img2);
 }
 
