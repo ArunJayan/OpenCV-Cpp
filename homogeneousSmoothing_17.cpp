@@ -38,11 +38,8 @@ int main(int argc,const char** argv)
 
 	Mat img1; //output
 	char label[20];
-	for(int i=1;i<31;i=i+2)
-	{
-		sprintf(label,"%d x %d",i,i);//label image
-		blur(img,img1,Size(i,i));//bluring or smoothing
-		putText(img1,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255));
-		imshow("smoothed img",img1); //show the blured image.
-	}
-}
+	sprintf(label,"%d x %d",5,5);//label image
+	blur(img,img1,Size(5,5));//bluring or smoothing
+	putText(img1,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255));
+	imshow("smoothed img",img1); //show the blured image.
+	waitKey(0);//wait for keypress
