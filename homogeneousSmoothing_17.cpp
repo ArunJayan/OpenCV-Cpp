@@ -57,6 +57,11 @@ int main(int argc,const char** argv)
 
 	putText(img3,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255));
 	/*
+	first argument : source image
+	2nd : text u want to put into the image
+	3rd : bottom-left corner of the text in image
+	4th : font type (FONT_HERSHEY_SIMPLEX, FONT_HERSHEY_PLAIN, FONT_HERSHEY_DUPLEX, FONT_HERSHEY_COMPLEX, FONT_HERSHEY_TRIPLEX, FONT_HERSHEY_COMPLEX_SMALL, FONT_HERSHEY_SCRIPT_SIMPLEX or FONT_HERSHEY_SCRIPT_COMPLEX).
+	5th : font size
 	*/
 	sprintf(label,"%d x %d",5,5);//label image
 	blur(img,img1,Size(5,5));//bluring or smoothing
