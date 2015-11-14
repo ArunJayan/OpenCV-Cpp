@@ -21,8 +21,11 @@ simplest smoothing metheod .
 		[	1	1	1	1	1 ]
 		[	1	1	1	1	1 ]
 */
-#include <opemcv2/highgui/highgui.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <iostream>
+#include <stdio.h>
+
 
 using namespace std;
 using namespace cv;
@@ -31,7 +34,8 @@ int main(int argc,const char** argv)
 {
 	//create window
 	namedWindow("img",CV_WINDOW_AUTOSIZE);
-	namedWindow("smoothed img",CV_WINDOW_AUTOSIZE);
+	namedWindow("smoothed img1",CV_WINDOW_AUTOSIZE);
+	namedWindow("smoothed img2",CV_WINDOW_AUTOSIZE);
 	//load image
 	Mat img = imread("sample.png",CV_LOAD_IMAGE_COLOR);
 	imshow("img",img);//show the image
@@ -39,12 +43,20 @@ int main(int argc,const char** argv)
 	{
 		cout<<"Image can't be loaded"<<endl;
 	}
-	Mat img1; //output
+	Mat img1,img2,img3; //output
 	char label[20];
+	sprintf(label,"%d x %d",3,3);//label image
+	blur(img,img3,Size(3,3));//bluring or smoothing
+	putText(img3,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255));
 	sprintf(label,"%d x %d",5,5);//label image
 	blur(img,img1,Size(5,5));//bluring or smoothing
 	putText(img1,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255));
-	imshow("smoothed img",img1); //show the blured image.
+	blur(img,img2,Size(7,7));//bluring image using kernel size 7x7
+	sprintf(label,"%d x %d",7,7);//label image
+	putText(img2,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255));
+	imshow("smoothed img1",img1); //show the blured image1
+	imshow("smoothed img2",img2);//show the blured image2
+	imshow("smoothed img3",img3);//show the blured image3
 	waitKey(0);//wait for keypress
 	return 0;
 }
