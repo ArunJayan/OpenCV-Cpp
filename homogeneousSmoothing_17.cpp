@@ -13,6 +13,7 @@
 /*
 
 simplest smoothing metheod . 
+ It takes simply the average of the neighbourhood of a pixel and assign that value to itself.
 5x5 kernel is used in homogeneous smoothing . This kernel is known as "Nomalizedbox filter"
 		[	1	1	1	1	1 ]
 		[	1	1	1	1	1 ]	
