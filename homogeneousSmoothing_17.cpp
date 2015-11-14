@@ -55,7 +55,7 @@ int main(int argc,const char** argv)
 
 	*/
 
-	putText(img3,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255),1);
+	putText(img3,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255),3);
 	/*
 	first argument : source image
 	2nd : text u want to put into the image
