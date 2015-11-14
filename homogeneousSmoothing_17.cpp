@@ -27,3 +27,12 @@ simplest smoothing metheod .
 using namespace std;
 using namespace cv;
 
+int main(int argc,const char** argv)
+{
+	//create window
+	namedWindow("img",CV_WINDOW_AUTOSIZE);
+	namedWindow("smoothed img",CV_WINDOW_AUTOSIZE);
+	//load image
+	Mat img = imread("sample.png",CV_LOAD_IMAGE_COLOR);
+	imshow("img",img);//show the image
+}
