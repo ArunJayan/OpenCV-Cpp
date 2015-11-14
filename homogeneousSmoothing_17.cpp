@@ -35,7 +35,10 @@ int main(int argc,const char** argv)
 	//load image
 	Mat img = imread("sample.png",CV_LOAD_IMAGE_COLOR);
 	imshow("img",img);//show the image
-
+	if(!img.data)//if image is not loaded
+	{
+		cout<<"Image can't be loaded"<<endl;
+	}
 	Mat img1; //output
 	char label[20];
 	sprintf(label,"%d x %d",5,5);//label image
@@ -43,3 +46,5 @@ int main(int argc,const char** argv)
 	putText(img1,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255));
 	imshow("smoothed img",img1); //show the blured image.
 	waitKey(0);//wait for keypress
+	return 0;
+}
