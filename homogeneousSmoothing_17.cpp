@@ -47,7 +47,17 @@ int main(int argc,const char** argv)
 	char label[20];
 	sprintf(label,"%d x %d",3,3);//label image
 	blur(img,img3,Size(3,3));//bluring or smoothing
+/*
+	this opencv function smooth image using normalized box filter.
+	first argument : source image
+	second argument : destination image (it should have same size and depth as the input image) 
+	thrid : kernel size (it should odd number) eg : 3x3,5x5,7x7 etc.
+
+	*/
+
 	putText(img3,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255));
+	/*
+	*/
 	sprintf(label,"%d x %d",5,5);//label image
 	blur(img,img1,Size(5,5));//bluring or smoothing
 	putText(img1,label,Point(img.cols/4,img.rows/8), CV_FONT_HERSHEY_COMPLEX,1, Scalar(255, 255, 255));
