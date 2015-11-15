@@ -19,12 +19,19 @@ int main(int argc,const char** argv)
 	}
 	Mat img1;
 	char text[30];
-	sprintf(text,"%d x %d",5,5); //text to display in image 
-	bilateralFilter(img,img1,5,5,5);
+	sprintf(text,"%d x %d",7,7); //text to display in image 
+	bilateralFilter(img,img1,7,7,7);
+
 	/*
+	1st argument : source img
+	2nd 	""	 : destination 
+	3rd  	""   : diameter of each pixel neighbourhood 
+	4th 	""	 : sigmaColor , sigma in the color space 
+	5th     ""   : sigmaSpace ,sigma in the coordinate space 
 	*/
 	putText(img1,text,Point(img.cols/4,img.rows/8),CV_FONT_HERSHEY_COMPLEX,1,Scalar(255,255,255),2);//print msg on image
 	imshow("Bilateral",img1);//show the image
+	imshow("Original",img);//show the source img. 
 	waitKey(0);//waits for any keypress to exit
 	return 0;
 } 
