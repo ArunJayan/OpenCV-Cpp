@@ -11,5 +11,14 @@ using namespace cv;
 int main(int argc,const char** argv)
 {
 	Mat img = imread("sample.png",CV_LOAD_IMAGE_COLOR);
-	
+	//load the image
+	if(!img.data) //if image can not be loaded exit with -1
+	{
+		cout<<"Image can't be loaded"<<endl;
+		return -1;
+	}
+	Mat img1;
+	char text[30];
+	sprintf(text,"%d x %d",5,5); //text to display in image 
+
 } 
