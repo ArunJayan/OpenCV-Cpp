@@ -17,6 +17,7 @@ int main(int argc,const char** argv)
 	if(!img.data)//image can't be loaded print message
 	{
 		cout<<"Image can't be loaded"<<endl;
+		retun -1;
 	}
 	Mat img1,img2;
 	char label[30];
