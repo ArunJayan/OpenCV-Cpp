@@ -23,5 +23,6 @@ int main(int argc,const char** argv)
 	bilateralFilter(img,img1,5,5);
 	/*
 	*/
-	putText(img1,text,Point(img.cols/4,img.rows/8),CV_FONT_HERSHY_COMPLEX,1,SCalar(255,255,255),2);
+	putText(img1,text,Point(img.cols/4,img.rows/8),CV_FONT_HERSHY_COMPLEX,1,SCalar(255,255,255),2);//print msg on image
+	imshow("Bilateral",img1);//show the image
 } 
