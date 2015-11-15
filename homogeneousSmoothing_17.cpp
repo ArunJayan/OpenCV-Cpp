@@ -42,6 +42,7 @@ int main(int argc,const char** argv)
 	if(!img.data)//if image is not loaded
 	{
 		cout<<"Image can't be loaded"<<endl;
+		return -1;
 	}
 	Mat img1,img2,img3; //output
 	char label[20];
