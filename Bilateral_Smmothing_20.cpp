@@ -20,5 +20,8 @@ int main(int argc,const char** argv)
 	Mat img1;
 	char text[30];
 	sprintf(text,"%d x %d",5,5); //text to display in image 
-
+	bilateralFilter(img,img1,5,5);
+	/*
+	*/
+	putText(img1,text,Point(img.cols/4,img.rows/8),CV_FONT_HERSHY_COMPLEX,1,SCalar(255,255,255),2);
 } 
