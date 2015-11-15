@@ -20,10 +20,10 @@ int main(int argc,const char** argv)
 	Mat img1;
 	char text[30];
 	sprintf(text,"%d x %d",5,5); //text to display in image 
-	bilateralFilter(img,img1,5,5);
+	bilateralFilter(img,img1,5,5,5);
 	/*
 	*/
-	putText(img1,text,Point(img.cols/4,img.rows/8),CV_FONT_HERSHY_COMPLEX,1,SCalar(255,255,255),2);//print msg on image
+	putText(img1,text,Point(img.cols/4,img.rows/8),CV_FONT_HERSHEY_COMPLEX,1,Scalar(255,255,255),2);//print msg on image
 	imshow("Bilateral",img1);//show the image
 	waitKey(0);//waits for any keypress to exit
 	return 0;
