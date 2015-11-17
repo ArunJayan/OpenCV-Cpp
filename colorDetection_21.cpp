@@ -44,6 +44,25 @@ int main(int argc,const char** argv)
 			cout<<"Can not read a frame"<<endl;
 			break;
 		}
+		Mat img;
+		cvtColor(frame,img,CV_BGR2HSV);//convert to hsv
+		Mat thresholdImage;
+		inRange(img,Scalar(lowH,lowS,lowV),Scalar(highH,highS,highV),thresholdImage);
+		//threshold the image 
+		erode(thresholdImage,thresholdImage,getStructuringElement(MORPH_ELLIPSE,Size(5,5)));
+		dilate(thresholdImage,thresholdImage,getStructuringElement(MORPH_ELLIPSE,Size(5,5)));
+
+		dilate(thresholdImage,thresholdImage,getStructuringElement(MORPH_ELLIPSE,Size(5,5)));
+		erode(thresholdImage,thresholdImage,getStructuringElement(MORPH_ELLIPSE,Size(5,5)));
 		
+		imshow("threshold_image",thresholdImage);
+		imshow("Frame",frame);
+		if(waitKey(30)==27)
+		{
+			break;
+		}
+
 	}
+	return 0;
+	destroyAllWindows();
 } 
