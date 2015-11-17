@@ -6,7 +6,7 @@
 /* get_positions: a function to retrieve the center of the detected blobs.
  * largely based on OpenCV's "Creating Bounding boxes and circles for contours" tutorial.
  */
-std::vector<cv::Point2f> get_positions(cv::Mat& image)
+std::vector<cv::Point2f> Centroid(cv::Mat& image)
 {
     if (image.channels() > 1)
     {
@@ -23,6 +23,7 @@ std::vector<cv::Point2f> get_positions(cv::Mat& image)
     std::vector<float> radius(contours.size());
     for (unsigned int i = 0; i < contours.size(); i++ )
     {
+		
         cv::approxPolyDP(cv::Mat(contours[i]), contours_poly[i], 5, true );
         cv::minEnclosingCircle((cv::Mat)contours_poly[i], center[i], radius[i]);
     }
@@ -63,10 +64,10 @@ int main()
         cv::erode(red_objs, red_objs, cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 3)));
         cv::dilate(red_objs, red_objs, cv::getStructuringElement(cv::MORPH_RECT, cv::Size(7, 7)));
 
-        cv::Mat objs = red_objs.clone();
-        cv::imshow(wnd2, objs);
+        cv::Mat objs = red_objs.clone();//copy of thresholded image into objs
+        cv::imshow(wnd2, objs);//show the image 
         // Retrieve a vector of points with the (x,y) location of the objects
-        std::vector<cv::Point2f> points = get_positions(objs);
+        std::vector<cv::Point2f> points = Centroid(objs);
 		char text[30];
         // Draw a small green circle at those locations for educational purposes
         for (unsigned int i = 0; i < points.size(); i++)
@@ -76,11 +77,11 @@ int main()
             cv::putText(img, text, cv::Point(points[i].x,points[i].y), cv::FONT_HERSHEY_COMPLEX_SMALL, 0.8, cv::Scalar(255,0,0));
             std::cout<<points[i].x<<" "<<points[i].y<<std::endl;}
 
-        cv::imshow(wnd3, img);
-		cv::waitKey(0);
+        cv::imshow(wnd3, img);//show the image 
+		cv::waitKey(0);//wait for keypress
     
 
-	cv::destroyAllWindows();
+	cv::destroyAllWindows();//destroy all windows
 
     return 0;
 }
