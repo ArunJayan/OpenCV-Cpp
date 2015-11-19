@@ -13,5 +13,18 @@ int main(int argc,char** argv)
 	{
 		cout<<"Image can not be loaded."<<endl;
 	}
-
+	namedWindow("Rotate",CV_WINDOW_AUTOSIZE);
+	//window created 
+	int angle = 0;
+	createTrackbar("Angle : ","Rotate",&angle,360);
+	//trackbar to variying the angle 
+	while(true)
+	{
+		Mat rotation = getRotationMatrix2D(Point(img.rows/2,img.cols/2),angle,1);
+		//This function returns 2x3 affine transformation matrix for the 2D rotation.
+		//Aurguments : 
+		//			 Center : center of the rotation of the source img
+		//			 Angle :  angle of rotation
+		//			 Scale : scaling factor of image.
+	}
 }
