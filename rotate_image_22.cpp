@@ -26,5 +26,12 @@ int main(int argc,char** argv)
 		//			 Center : center of the rotation of the source img
 		//			 Angle :  angle of rotation
 		//			 Scale : scaling factor of image.
+		Mat img_rotated;
+		warpAffine(img,img_rotated,rotation,img.size());
+		//applies affine transformation to an image
+		//Arguments :
+		//			 1st : source image
+		//			 2nd : output image
 	}
+
 }
