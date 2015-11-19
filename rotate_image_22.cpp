@@ -32,6 +32,16 @@ int main(int argc,char** argv)
 		//Arguments :
 		//			 1st : source image
 		//			 2nd : output image
+		//			 3rd : Affine Transformation matrix
+		//			 4th : Size of destination image
+		imshow("Rotate",img_rotated);//rotated image 
+		if(waitKey(30)==27)
+		{
+			//if esc is prssed 
+			break;
+		}
 	}
+	destroyAllWindows();
+	return 0;
 
 }
